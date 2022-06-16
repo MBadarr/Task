@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import TodoList from './Components/ToDoList';
+// import Items from '../src/items.json';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodoList
+        items={props.items}
+        onListClick={() => console.log('List clicked!')}
+        onItemClick={(item, event) => {
+          console.log(item, event);
+        }}
+      />
+    </>
   );
 }
 
